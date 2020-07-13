@@ -219,12 +219,12 @@ function movingBullet() {
 let monsterX = 100;
 let monsterY = 100;
 
-let monster2X = 200;
-let monster2Y = 200;
+let monster2X = 500;
+let monster2Y = 500;
 
 
-let treeX = 100;
-let treeY = 100;
+let treeX = 0;
+let treeY = canvas.width;
 /** 
  * Keyboard Listeners
  * You can safely ignore this part, for now. 
@@ -253,8 +253,19 @@ function setupKeyboardListeners() {
  *  If you change the value of 5, the player will move at a different rate.
  */
 function naughtyMonster() {
-  monsterX += 1;
-  monster2X += 5;
+  
+  if (Math.random() > 0.5) {
+    monsterX += Math.random() * canvas.width / 50;
+  } else {
+    monsterY -= Math.random() * canvas.width / 40;
+  }
+  if (Math.random() > 0.5) {
+    monsterY -= Math.random() * canvas.height / 50;
+  } else {
+    monsterY += Math.random() * canvas.height / 30;
+  }
+
+
 }
 
 let lockBulletDirection = false
@@ -270,7 +281,7 @@ let update = function () {
 
   // bulletX += 5
 
-
+  naughtyMonster()
   movingBullet()
 
   // updatekeydown
@@ -310,17 +321,17 @@ let update = function () {
   // Check if player and monster collided. Our images
   // are about 32 pixels big.
   if (
-    bulletX <= (monsterX + 32)
-    && monsterX <= (bulletX + 32)
-    && bulletY <= (monsterY + 32)
-    && monsterY <= (bulletY + 32)
+    heroX <= (monsterX + 50)
+    && monsterX <= (heroX + 50)
+    && heroY <= (monsterY + 50)
+    && monsterY <= (heroY + 50)
 
   ) {
     // Pick a new location for the monster.
     // Note: Change this to place the monster at a new, random location.
     monsterX = Math.round(Math.random() * canvas.width);
     monsterY = Math.round(Math.random() * canvas.height);
-
+score++
   }
 
   //limitation for heroes and monstser position

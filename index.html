@@ -4,15 +4,28 @@
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <title>Best Game Ever!</title>
 </head>
 
 <body>
-  <h1 id="username">Username</h1>
-  <input id="getUsername" type="text" placeholder="Type your name: ">
-  <button onclick="getUsername()">Play</button>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h1 id="username">Username</h1>
+        <input id="getUsername" type="text" placeholder="Type your name: ">
+        <button onclick="getUsername()">Play</button>
 
-  <button onclick="reset()">Reset</button>
+        <button onclick="reset()">Reset</button>
+      </div>
+      <div class="col">
+        <h1>High Score</h1>
+      </div>
+    </div>
+
+  </div>
+
 
   <script src="username.js"></script>
   <script src="game.js"></script>
